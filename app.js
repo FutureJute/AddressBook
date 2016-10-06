@@ -8,9 +8,7 @@ function mainController($scope,$http){
         $scope.selectedUser= $scope.userList[0];
     });}
     $scope.getFile();
-
     $scope.newUser={};
-    
     $scope.editMode = false;
     $scope.editUser = function(user) {
         $scope.selectedUser = user;
@@ -33,6 +31,16 @@ function mainController($scope,$http){
     $scope.setSelectedUser = function(user){
         $scope.selectedUser = user;
     }
+    function cleanInput(input) {
+        return input
+            .replace(/[?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+            .replace(/\s{2,}/g," ");
+
+    $scope.q = cleanInput(selectedUser.address.street);
+    $scope.change_q = q.split(" ");
+
+}
+
 }
 
 

@@ -1,1 +1,13 @@
-[{"name":"firstname"}]
+[{
+    "name":"firstname",
+    "title":"CEO",
+    "phone":"859-000-0000",
+    "email":"abc@gmail.com",
+    "address":{
+        "street": "348-E Main",
+        "city":"Lexigton",
+        "state":"KY",
+        "zip":"40507"
+    }
+
+}]

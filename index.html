@@ -8,11 +8,11 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <script src="https://use.fontawesome.com/a04d9e4c1c.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body ng-cloak ng-controller="MainCtrl">
-    <div class="container">
+    
         <header>
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
@@ -20,13 +20,18 @@
                         <span class="navbar-brand">
                             Address Book
                         </span>
-                        <span class="navbar-brand" ng-click="addUser(newUser)">
-                            Add User
-                        </span>
                     </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" ng-click="addUser(newUser)">
+                                Add User
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </header>
+    <div class="container">
         <div class="row">
             <div class="col-md-5">
                 <ul class="list-group">
@@ -34,53 +39,74 @@
                         ng-repeat="user in userList"
                         ng-click="setSelectedUser(user)">
                             {{user.name}}
-                            <button class="btn btn-primary"
+                            <button class="btn btn-primary pull-right"
                                 ng-click="editUser(user)">Edit</button>
                     </li>
                 </ul>
-            </div>
-            <div class="col-md-7">
+            </div> 
+            <div class="col-md-7 panel panel-default">
                 <div class="row" ng-hide="editMode">
-                    <div class="col-md-3">
-                        image
-                    </div>
-                    <div class="col-md-9">
-                        <div class="row">
-                            {{selectedUser.name}}
-                        </div>
-                        <div class="row">
-                            {{selectedUser.title}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            logos
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row">
-                                {{selectedUser.phone}}
+                    <div class="col-md-12">
+                        <div class="row panel">
+                            <div class="col-md-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7XoMBDx9M3hDrFeSVgQIY-Gx62zaWCtGBGFpCwoc8_II1xm40hpHWRPA" class="img-responsive">
                             </div>
-                            <div class="row">
-                                {{selectedUser.email}}
+                            <div class="col-md-9">
+                                <div class="row panel-a">
+                                    <div class="col-md-12">
+                                        {{selectedUser.name}}
+                                    </div>
+                                </div>
+                                <div class="row panel-a">
+                                    <div class="col-md-12">
+                                        {{selectedUser.title}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            Home Logo
+                     
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="row panel">
+                                    <div class="col-md-12">
+                                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="row panel">
+                                    <div class="col-md-12">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row panel">
+                                    <div class="col-md-12">
+                                    {{selectedUser.phone}}
+                                    </div>
+                                </div>
+                                <div class="row panel">
+                                    <div class="col-md-12">
+                                        {{selectedUser.email}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                                {{selectedUser.address.street}} <br>
-                                {{selectedUser.address.city}}<br>
-                                {{selectedUser.address.state}}<br>
-                                {{selectedUser.address.zip}}
-                        </div>
-                        <div class="col-md-4">
-                            <iframe src=""></iframe>
+                        <div class="row">
+                            <div class="col-md-3 panel">
+                              <i class="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-5 panel">
+                                    {{selectedUser.address.street}} <br>
+                                    {{selectedUser.address.city}}<br>
+                                    {{selectedUser.address.state}}<br>
+                                    {{selectedUser.address.zip}}
+                            </div>
+                            <div class="col-md-4">
+                                Map
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row" ng-show="editMode">
                     <div class="col-md-12">
                         <input type="text" ng-model="selectedUser.name" placeholder="Name" class="form-control">
