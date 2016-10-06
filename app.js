@@ -22,7 +22,13 @@ function mainController($scope,$http){
         if ($scope.selectedUser != $scope.newUser) {
             console.log('User already in user list');
         } else {
-            $scope.userList.push($scope.selectedUser);
+            if ($scope.selectedUser.name != null){
+                $scope.userList.push($scope.selectedUser);
+            }
+            else{ 
+                console.log ('Enter details.');
+                $scope.selectedUser= $scope.userList[0];
+            }
         }
         $scope.newUser = {};
         $scope.editMode = false;
@@ -31,17 +37,10 @@ function mainController($scope,$http){
     $scope.setSelectedUser = function(user){
         $scope.selectedUser = user;
     }
-    function cleanInput(input) {
-        return input
-            .replace(/[?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
-            .replace(/\s{2,}/g," ");
-
-    $scope.q = cleanInput(selectedUser.address.street);
-    $scope.change_q = q.split(" ");
-
+ 
 }
 
-}
+
 
 
 
