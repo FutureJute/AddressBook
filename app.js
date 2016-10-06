@@ -6,10 +6,12 @@ function mainController($scope,$http){
         $http.get('address.json').success(function(data){
         $scope.userList=data;
         $scope.selectedUser= $scope.userList[0];
+        console.log($scope.selectedUser.name);
     });}
     $scope.getFile();
     $scope.newUser={};
     $scope.editMode = false;
+
     $scope.editUser = function(user) {
         $scope.selectedUser = user;
         $scope.editMode = true;
@@ -37,7 +39,9 @@ function mainController($scope,$http){
     $scope.setSelectedUser = function(user){
         $scope.selectedUser = user;
     }
- 
+    
+
+
 }
 
 
